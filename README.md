@@ -38,3 +38,14 @@ and leaves a replayable record.
 Early product design and architecture work. The first milestone is a local
 developer preview that can read a Redmine issue, correlate Gerrit and GitLab
 context, and let an MCP-connected coding agent propose a safe comment.
+
+## Documentation
+
+- [Vision](docs/vision.md)
+- [MVP v0.1](docs/mvp-v0.1.md)
+- [Architecture](docs/architecture.md)
+- [Domain model](docs/domain-model.md)
+- [Cognitive layer](docs/cognitive-layer.md)
+- [MCP tools](docs/mcp-tools.md)
+- [Security model](docs/security.md)
+- [Demo scenario](docs/demo-scenario.md)
