@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cograil Control Plane Concept</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Workspace navigation">
+        <div class="brand-block">
+          <div class="brand-mark" aria-hidden="true">Cg</div>
+          <div class="brand-copy">
+            <strong>Cograil</strong>
+            <span>Atlas Program</span>
+          </div>
+        </div>
+
+        <nav class="primary-nav" aria-label="Primary">
+          <a class="nav-item active" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 6.5h14M5 12h14M5 17.5h8" />
+            </svg>
+            Inbox
+            <span>9</span>
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm10 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM7 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2.8-4.8 4.4-4.4M9.8 6.8l4.4 4.4" />
+            </svg>
+            Work Graph
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 4.5h12v15H6zM9 8h6M9 12h6M9 16h3" />
+            </svg>
+            Reviews
+            <span>4</span>
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 4v4M12 16v4M5.7 6.7l2.8 2.8M15.5 14.5l2.8 2.8M4 12h4M16 12h4M5.7 17.3l2.8-2.8M15.5 9.5l2.8-2.8" />
+            </svg>
+            Agents
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 5.5h14v13H5zM8 9h8M8 13h5" />
+            </svg>
+            Context
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 17h4V7H4v10Zm6 0h4V4h-4v13Zm6 0h4v-7h-4v7Z" />
+            </svg>
+            Pipelines
+          </a>
+        </nav>
+
+        <div class="sidebar-section">
+          <div class="section-label">Views</div>
+          <button class="view-pill active" data-view="all">Active control loop</button>
+          <button class="view-pill" data-view="blocked">Blocked gates</button>
+          <button class="view-pill" data-view="reviews">Patch-set review</button>
+          <button class="view-pill" data-view="agents">Agent runs</button>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div class="page-title">
+            <span class="eyebrow">Human-agent workspace</span>
+            <h1>Control Queue</h1>
+          </div>
+
+          <div class="topbar-actions">
+            <label class="search-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m20 20-4.6-4.6M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z" />
+              </svg>
+              <input id="searchInput" type="search" placeholder="Search work, agents, changes" />
+            </label>
+            <button class="icon-button" id="commandButton" type="button" aria-label="Command palette" title="Command palette">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 8h10M7 12h10M7 16h6" />
+              </svg>
+            </button>
+            <button class="primary-action" type="button" id="newWorkButton">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+              New Work
+            </button>
+          </div>
+        </header>
+
+        <section class="signal-band" aria-label="Workspace signals">
+          <div class="signal">
+            <span class="signal-value">27</span>
+            <span class="signal-label">Open items</span>
+          </div>
+          <div class="signal warning">
+            <span class="signal-value">6</span>
+            <span class="signal-label">Human gates</span>
+          </div>
+          <div class="signal success">
+            <span class="signal-value">18</span>
+            <span class="signal-label">Green validations</span>
+          </div>
+          <div class="signal danger">
+            <span class="signal-value">3</span>
+            <span class="signal-label">Risk holds</span>
+          </div>
+          <div class="graph-card" aria-label="Work graph preview">
+            <svg viewBox="0 0 420 86" role="img" aria-label="Linked work, agent, review, and release nodes">
+              <path class="graph-line" d="M28 48 C82 18, 126 18, 180 44 S284 68, 337 34 S390 26, 405 36" />
+              <circle class="node node-work" cx="32" cy="48" r="6" />
+              <circle class="node node-agent" cx="112" cy="24" r="6" />
+              <circle class="node node-review" cx="185" cy="45" r="6" />
+              <circle class="node node-pipe" cx="275" cy="63" r="6" />
+              <circle class="node node-release" cx="342" cy="33" r="6" />
+              <circle class="node node-risk" cx="402" cy="36" r="6" />
+            </svg>
+          </div>
+        </section>
+
+        <section class="queue-panel" aria-label="Control queue">
+          <div class="panel-header">
+            <div>
+              <span class="eyebrow">Attention set</span>
+              <h2>Active handoffs</h2>
+            </div>
+            <div class="segmented" role="tablist" aria-label="Queue filters">
+              <button class="segment active" data-view="all" type="button">All</button>
+              <button class="segment" data-view="blocked" type="button">Blocked</button>
+              <button class="segment" data-view="reviews" type="button">Reviews</button>
+              <button class="segment" data-view="agents" type="button">Agents</button>
+            </div>
+          </div>
+
+          <div class="queue-table" id="queueTable" aria-live="polite"></div>
+        </section>
+      </main>
+
+      <aside class="detail-panel" aria-label="Selected work detail">
+        <div id="detailContent"></div>
+      </aside>
+    </div>
+
+    <div class="command-overlay" id="commandOverlay" hidden>
+      <div class="command-panel" role="dialog" aria-modal="true" aria-label="Command palette">
+        <div class="command-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m20 20-4.6-4.6M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z" />
+          </svg>
+          <input id="commandInput" type="text" placeholder="Run command" />
+        </div>
+        <div class="command-list">
+          <button type="button" data-command="Create work item">
+            <span>01</span>
+            Create work item
+          </button>
+          <button type="button" data-command="Assign agent squad">
+            <span>02</span>
+            Assign agent squad
+          </button>
+          <button type="button" data-command="Open artifact review">
+            <span>03</span>
+            Open artifact review
+          </button>
+          <button type="button" data-command="Rerun validation">
+            <span>04</span>
+            Rerun validation
+          </button>
+          <button type="button" data-command="Escalate gate">
+            <span>05</span>
+            Escalate gate
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
